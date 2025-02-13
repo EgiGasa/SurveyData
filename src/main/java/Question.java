@@ -1,3 +1,4 @@
+import org.apache.commons.lang3.StringUtils;
 
 public class Question {
 
@@ -24,23 +25,25 @@ public class Question {
     }
 
     public void recordAnswer(String answer){
-        switch(answer){
-            case "Agree":
-                agreeCount++;
-                break;
+        if (!StringUtils.isEmpty(answer)) {
+            switch(answer){
+                case "Agree":
+                    agreeCount++;
+                    break;
                 case "SlightlyAgree":
                     slightlyAgreeCount++;
                     break;
-                    case "Disagree":
-                        disagreeCount++;
-                        break;
-                        case "SlightlyDisagree":
-                            slightlyDisagreeCount++;
-                            break;
-                            case "Unanswered":
-                                unansweredCount++;
-                                break;
-                                default:
+                case "Disagree":
+                    disagreeCount++;
+                    break;
+                case "SlightlyDisagree":
+                    slightlyDisagreeCount++;
+                    break;
+                case "Unanswered":
+                    unansweredCount++;
+                    break;
+                default:
+            }
         }
     }
 
